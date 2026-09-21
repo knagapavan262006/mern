@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zerodha - Invest in Everything</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #424242;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid #eee;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #387ed1;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: #424242;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #387ed1;
+        }
+
+        .menu {
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 70px;
+        }
+
+        .hero img {
+            width: 75%;
+            max-width: 850px;
+            margin-bottom: 45px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #424242;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #387ed1;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2d6bb5;
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        /* TRUST */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .trust-card {
+            padding: 25px;
+        }
+
+        .trust-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #424242;
+        }
+
+        .trust-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* UNIVERSE */
+        .universe {
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .universe p {
+            max-width: 750px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 30px 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .product-card h3 {
+            color: #387ed1;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* API */
+        .api-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .api-text {
+            flex: 1;
+        }
+
+        .api-text h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .api-text p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .api-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .api-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* PRICING */
+        .pricing {
+            background: #fafafa;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .price-card {
+            background: white;
+            text-align: center;
+            padding: 35px 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .price-icon {
+            font-size: 40px;
+            color: #387ed1;
+            margin-bottom: 15px;
+        }
+
+        .price-card h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* EDUCATION */
+        .education {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .education-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .education-image img {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .education-text {
+            flex: 1;
+        }
+
+        .education-text h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .education-text p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* SIGNUP */
+        .signup {
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .signup h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .signup p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #fafafa;
+            border-top: 1px solid #eee;
+            padding: 60px 8% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: #387ed1;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            color: #387ed1;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+            padding-top: 25px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .trust-grid,
+            .products,
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .api-section,
+            .education {
+                flex-direction: column;
+            }
+
+            .hero img {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .trust-grid,
+            .products,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">zerodha</div>
+
+        <div class="nav-links">
+            <a href="#">Signup</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Pricing</a>
+            <a href="#">Support</a>
+            <span class="menu">☰</span>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <img
+            src="https://zerodha.com/static/images/landing.svg"
+            alt="Zerodha Trading Platform">
+
+        <h1>Invest in everything</h1>
+
+        <p>
+            Online platform to invest in stocks, IPOs, derivatives,
+            mutual funds, ETFs, bonds, and more.
+        </p>
+
+        <a href="#" class="btn">
+            Sign up for free
+        </a>
+
+    </section>
+
+
+    <!-- TRUST -->
+    <section>
+
+        <h2 class="section-title">
+            Trust with confidence
+        </h2>
+
+        <div class="trust-grid">
+
+            <div class="trust-card">
+                <h3>Customer-first always</h3>
+                <p>
+                    That's why 1.8+ crore customers trust Zerodha
+                    with their investments.
+                </p>
+            </div>
+
+            <div class="trust-card">
+                <h3>No spam or gimmicks</h3>
+                <p>
+                    No gimmicks, spam, gamification, or annoying
+                    push notifications.
+                </p>
+            </div>
+
+            <div class="trust-card">
+                <h3>The Zerodha universe</h3>
+                <p>
+                    Not just an app, but a whole ecosystem with
+                    multiple investment and financial products.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ZERODHA UNIVERSE -->
+    <section class="universe">
+
+        <h2 class="section-title">
+            The Zerodha universe
+        </h2>
+
+        <p>
+            Not just an app, but a whole ecosystem. Explore
+            products designed for trading, investing and learning.
+        </p>
+
+        <div class="products">
+
+            <div class="product-card">
+                <h3>Kite</h3>
+                <p>
+                    Trading platform for stocks, derivatives,
+                    mutual funds and more.
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h3>Console</h3>
+                <p>
+                    Back-office platform to track investments,
+                    reports and portfolio performance.
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h3>Kite Connect</h3>
+                <p>
+                    APIs for building your own trading and
+                    investing applications.
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h3>Coin</h3>
+                <p>
+                    Platform for investing in direct mutual funds.
+                </p>
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <a href="#" class="btn">
+            Explore our products
+        </a>
+
+    </section>
+
+
+    <!-- API -->
+    <section class="api-section">
+
+        <div class="api-text">
+
+            <h2>
+                Build your own trading experience
+            </h2>
+
+            <p>
+                With Kite Connect, developers can use simple
+                HTTP APIs to place orders, stream market data,
+                manage accounts and build trading applications.
+            </p>
+
+            <a href="#" class="btn">
+                Explore Kite Connect
+            </a>
+
+        </div>
+
+        <div class="api-image">
+            <img
+                src="https://zerodha.com/static/images/kc-banner-image.svg"
+                alt="Kite Connect">
+        </div>
+
+    </section>
+
+
+    <!-- PRICING -->
+    <section class="pricing">
+
+        <h2 class="section-title">
+            Unbeatable pricing
+        </h2>
+
+        <div class="pricing-grid">
+
+            <div class="price-card">
+
+                <div class="price-icon">₹</div>
+
+                <h3>
+                    Free account opening
+                </h3>
+
+            </div>
+
+            <div class="price-card">
+
+                <div class="price-icon">₹0</div>
+
+                <h3>
+                    Free equity delivery
+                    and direct mutual funds
+                </h3>
+
+            </div>
+
+            <div class="price-card">
+
+                <div class="price-icon">₹20</div>
+
+                <h3>
+                    Intraday and F&O
+                </h3>
+
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <div style="text-align:center;">
+            <a href="#" class="btn">
+                See pricing
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section class="education">
+
+        <div class="education-image">
+
+            <img
+                src="https://zerodha.com/static/images/index-education.svg"
+                alt="Market Education">
+
+        </div>
+
+        <div class="education-text">
+
+            <h2>
+                Free and open market education
+            </h2>
+
+            <p>
+                Varsity is an online stock market education
+                platform covering topics from basic to advanced
+                trading and investing.
+            </p>
+
+            <a href="#" class="btn">
+                Explore Varsity
+            </a>
+
+            <br><br>
+
+            <p>
+                TradingQ&A is a community for market-related
+                questions and discussions.
+            </p>
+
+            <a href="#" class="btn">
+                TradingQ&A
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIGNUP -->
+    <section class="signup">
+
+        <h2>
+            Open a Zerodha account
+        </h2>
+
+        <p>
+            Modern platforms and apps for investing and trading.
+        </p>
+
+        <a href="#" class="btn">
+            Sign up for free
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div class="footer-column">
+
+                <div class="footer-logo">
+                    zerodha
+                </div>
+
+                <p class="footer-about">
+                    © 2010 - 2026, Zerodha Broking Ltd.
+                    All rights reserved.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Account</h3>
+
+                <a href="#">Open demat account</a>
+                <a href="#">Minor demat account</a>
+                <a href="#">NRI demat account</a>
+                <a href="#">Commodity</a>
+                <a href="#">Fund transfer</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Support</h3>
+
+                <a href="#">Contact us</a>
+                <a href="#">Support portal</a>
+                <a href="#">How to file a complaint?</a>
+                <a href="#">Downloads</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Company</h3>
+
+                <a href="#">About</a>
+                <a href="#">Philosophy</a>
+                <a href="#">Press & media</a>
+                <a href="#">Careers</a>
+                <a href="#">Open source</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            Investments in securities market are subject to
+            market risks. Read all related documents carefully
+            before investing.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
